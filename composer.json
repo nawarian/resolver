@@ -1,0 +1,26 @@
+{
+    "name": "nawarian/requirements",
+    "description": "A requirement library based on generators",
+    "type": "library",
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.4",
+        "react/promise": "^2.7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5",
+        "spatie/phpunit-watcher": "1.21.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nawarian",
+            "email": "nickolas@phpsp.org.br"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Nawarian\\Requirements\\": "src/"
+        }
+    }
+}
