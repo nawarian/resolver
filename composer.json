@@ -21,6 +21,7 @@
     "autoload": {
         "psr-4": {
             "Nawarian\\Requirements\\": "src/"
-        }
+        },
+        "files": ["./src/functions.php"]
     }
 }
