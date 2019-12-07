@@ -93,4 +93,19 @@ class ResolverTest extends TestCase
         $this->resolver->resolve($generator);
         $this->assertEquals('My Rejection', $generator->getReturn());
     }
+
+    public function testResolverCanResolveThreeTimesInARow(): void
+    {
+        $resolvable = function(): Generator {
+            $one = yield resolve(1);
+            $two = yield resolve(2);
+            $three = yield resolve(3);
+
+            return [$one, $two, $three];
+        };
+        $generator = $resolvable();
+
+        $this->resolver->resolve($generator);
+        $this->assertEquals([1, 2, 3], $generator->getReturn());
+    }
 }

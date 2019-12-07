@@ -13,8 +13,10 @@ class Resolver
 {
     public function resolve(Generator $resolvable): void
     {
-        /** @var PromiseInterface|array<PromiseInterface> $promiseOrPromises */
-        foreach ($resolvable as $promiseOrPromises) {
+        while ($resolvable->valid()) {
+            /** @var PromiseInterface|array<PromiseInterface> $promiseOrPromises */
+            $promiseOrPromises = $resolvable->current();
+
             if ($this->yieldedValueIsInvalid($promiseOrPromises)) {
                 throw new RuntimeException(
                     sprintf(
